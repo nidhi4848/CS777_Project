@@ -1,0 +1,180 @@
+24/08/06 15:33:32 INFO SparkEnv: Registering MapOutputTracker
+24/08/06 15:33:32 INFO SparkEnv: Registering BlockManagerMaster
+24/08/06 15:33:32 INFO SparkEnv: Registering BlockManagerMasterHeartbeat
+24/08/06 15:33:32 INFO SparkEnv: Registering OutputCommitCoordinator
+24/08/06 15:33:33 INFO DefaultNoHARMFailoverProxyProvider: Connecting to ResourceManager at cluster-32ad-m.c.cs777-nidhi-desai.internal./10.128.0.35:8032
+24/08/06 15:33:33 INFO AHSProxy: Connecting to Application History server at cluster-32ad-m.c.cs777-nidhi-desai.internal./10.128.0.35:10200
+24/08/06 15:33:35 INFO Configuration: resource-types.xml not found
+24/08/06 15:33:35 INFO ResourceUtils: Unable to find 'resource-types.xml'.
+24/08/06 15:33:35 INFO YarnClientImpl: Submitted application application_1722950581082_0002
+24/08/06 15:33:36 INFO DefaultNoHARMFailoverProxyProvider: Connecting to ResourceManager at cluster-32ad-m.c.cs777-nidhi-desai.internal./10.128.0.35:8030
+24/08/06 15:33:38 INFO GoogleCloudStorageImpl: Ignoring exception of type GoogleJsonResponseException; verified object already exists with desired state.
++----------+----------+---------------+------------------+--------------+------------+---------+--------+---------+--------------+-------------------+----------------+--------------+------------+---------+-----------+
+|searchDate|flightDate|startingAirport|destinationAirport|isBasicEconomy|isRefundable|isNonStop|baseFare|totalFare|seatsRemaining|totalTravelDistance|segmentsDistance|departure_time|arrival_time|cabinCode|airlineName|
++----------+----------+---------------+------------------+--------------+------------+---------+--------+---------+--------------+-------------------+----------------+--------------+------------+---------+-----------+
+|         0|         0|              0|                 0|             0|           0|        0|       0|        0|             0|             609997|           85807|             0|           0|        0|          0|
++----------+----------+---------------+------------------+--------------+------------+---------+--------+---------+--------------+-------------------+----------------+--------------+------------+---------+-----------+
+
+Number of instances in DataFrame: 8213875
+Number of instances after outlier removal in DataFrame: 8141423
+Number of duplicate rows: 456004
+Number of instances after removing duplicates: 7685419
++-------+---------------+------------------+------------------+------------------+------------------+-------------------+------------------+-------------+---------------+
+|summary|startingAirport|destinationAirport|          baseFare|         totalFare|    seatsRemaining|totalTravelDistance|  segmentsDistance|    cabinCode|    airlineName|
++-------+---------------+------------------+------------------+------------------+------------------+-------------------+------------------+-------------+---------------+
+|  count|        7685419|           7685419|           7685419|           7685419|           7685419|            7685419|           7685419|      7685419|        7685419|
+|   mean|           null|              null| 284.9657943463231| 332.0659480717862| 5.974298863861554| 1600.7195965102687|1073.9217370348965|         null|           null|
+| stddev|           null|              null|160.01097754156933|171.02883300788832|2.8825815738255756|  820.3819164606056| 704.0158249142361|         null|           null|
+|    min|            ATL|               ATL|              0.01|             19.59|                 0|               89.0|         1003||599|     business|Alaska Airlines|
+|    max|            SFO|               SFO|             863.0|             928.7|                10|             7252.0|  None||None||None|premium coach|         United|
++-------+---------------+------------------+------------------+------------------+------------------+-------------------+------------------+-------------+---------------+
+
+               Feature  Correlation with totalFare
+0             baseFare                    0.995655
+1            totalFare                    1.000000
+2       seatsRemaining                    0.022207
+3  totalTravelDistance                    0.498667
++-----+------------------+
+|Month|           AvgFare|
++-----+------------------+
+|    4|339.58119514866837|
+|    5| 354.0407507360537|
+|    6| 386.8441960365036|
+|    7|372.45389497817945|
+|    8| 324.5001730504446|
+|    9| 294.9476758334705|
+|   10|  296.796096561584|
+|   11| 255.1750121939889|
++-----+------------------+
+
++---------+------------------+
+|DayOfWeek|           AvgFare|
++---------+------------------+
+|        1|  386.866578395654|
+|        2|343.35929098326665|
+|        3|291.64898536466484|
+|        4|298.22115241546817|
+|        5|338.77226580702614|
+|        6| 351.1985577648705|
+|        7|328.16105679409196|
++---------+------------------+
+
++--------------------+------------------+-------+
+|         airlineName|           AvgFare|  Count|
++--------------------+------------------+-------+
+|   Hawaiian Airlines| 566.9392307692308|     39|
+|     Alaska Airlines| 473.4804969444068| 378996|
+|            Cape Air|470.39623536132433|   3501|
+|        Boutique Air| 455.4820252100842|   2380|
+|Sun Country Airlines|403.00659326546935|  21026|
+|               Delta|382.25434359124233|1920158|
+|              United| 362.7724546815377|1790082|
+|    Contour Airlines| 356.8358083832336|    167|
+|        Key Lime Air|355.88352230095927|   2399|
+|Southern Airways ...|335.83066813186855|   4550|
+|   American Airlines|296.80472918930883|2329222|
+|     JetBlue Airways| 259.9109290530116| 640071|
+|   Frontier Airlines| 200.4430832208661| 111883|
+|     Spirit Airlines|198.47968268724722| 480945|
++--------------------+------------------+-------+
+
++-------------+------------------+-------+
+|    cabinCode|           AvgFare|  Count|
++-------------+------------------+-------+
+|     business| 704.8048734177215|    158|
+|premium coach| 620.3081064201868|   4003|
+|        first|467.34315573770425|   1708|
+|        coach| 331.8779449232869|7679550|
++-------------+------------------+-------+
+
++------------+------------------+
+|isRefundable|           AvgFare|
++------------+------------------+
+|       false| 332.0654739248177|
+|        true|370.42357894736847|
++------------+------------------+
+
++---------+------------------+
+|isNonStop|           AvgFare|
++---------+------------------+
+|    false|364.71955993794654|
+|     true| 244.5117278146019|
++---------+------------------+
+
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by org.apache.spark.util.SizeEstimator$ (file:/usr/lib/spark/jars/spark-core_2.12-3.3.2.jar) to field java.nio.charset.Charset.name
+WARNING: Please consider reporting this to the maintainers of org.apache.spark.util.SizeEstimator$
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+24/08/06 15:54:42 WARN DAGScheduler: Broadcasting large task binary with size 1101.8 KiB
+24/08/06 15:54:50 WARN DAGScheduler: Broadcasting large task binary with size 1444.7 KiB
+24/08/06 15:58:51 WARN DAGScheduler: Broadcasting large task binary with size 1058.5 KiB
+24/08/06 15:59:00 WARN DAGScheduler: Broadcasting large task binary with size 1360.8 KiB
+24/08/06 16:02:49 WARN DAGScheduler: Broadcasting large task binary with size 1081.8 KiB
+24/08/06 16:02:56 WARN DAGScheduler: Broadcasting large task binary with size 1404.8 KiB
+24/08/06 16:04:33 WARN DAGScheduler: Broadcasting large task binary with size 1063.9 KiB
+24/08/06 16:04:41 WARN DAGScheduler: Broadcasting large task binary with size 1369.7 KiB
+Best Random Forest RMSE on test data: 122.25551452704748
+Best Random Forest MAE on test data: 93.77078379635788
+Best Random Forest R² on test data: 0.48909371959273773
++---------+------------------+
+|totalFare|        prediction|
++---------+------------------+
+|    103.6| 309.5071830953597|
+|   597.21|454.84761802223727|
+|    298.6|242.80646244462687|
+|    650.6|218.65566382716875|
+|    108.6|224.68974374084328|
+|   191.58|258.52339522479707|
+|    151.1|  297.842960998889|
+|    207.2|  182.912575932691|
+|    398.6| 426.7029409264584|
+|    398.6|475.50595688873557|
+|    623.6|  477.493058047953|
+|    578.6| 424.1456555920644|
+|    541.6| 337.8907766282514|
+|    207.2|306.09803186313997|
+|   548.14| 303.3371239098552|
+|   340.58|256.05639305226737|
+|    412.2| 342.5361159992604|
+|    452.2| 523.5069092413551|
+|   386.61| 396.3549585991073|
+|    248.6| 241.1939923399782|
++---------+------------------+
+only showing top 20 rows
+
+               Feature  Importance
+3  totalTravelDistance    0.518508
+0       isBasicEconomy    0.275282
+2       seatsRemaining    0.103302
+1            isNonStop    0.102907
+Silhouette score: -0.36467481254535905
++----------+-------+
+|prediction|  count|
++----------+-------+
+|         1| 378996|
+|         3|   3501|
+|         4|4742693|
+|         2| 640071|
+|         0|1920158|
++----------+-------+
+
+Cluster Centers: 
+[6.24778352e-01 0.00000000e+00 5.39369924e-01 2.27266097e+00
+ 9.48505424e-03 2.26505171e+00 2.10245887e-02 4.63903390e-03
+ 8.22308701e-05 2.18215216e-02 3.70942828e-04 1.19278383e-03
+ 1.67957049e-04 8.85502843e-04 8.67279885e-05 2.03171210e-04
+ 0.00000000e+00]
+[0.39821998 0.         0.26385787 2.68298093 0.         0.
+ 0.         0.         0.         4.61846655 0.         0.
+ 0.         0.         0.         0.         0.        ]
+[0.         0.         1.18827577 1.49760858 0.         0.
+ 0.         3.61911365 0.         0.         0.         0.
+ 0.         0.         0.         0.         0.        ]
+[ 0.          0.          0.          2.76244461  0.          0.
+  0.          0.          0.          0.          0.          0.
+  0.         46.8637063   0.          0.          0.        ]
+[0.37901572 0.00569153 0.58844618 1.81017928 1.06360724 0.
+ 0.88336091 0.0030401  0.41822497 0.02503434 0.19660451 0.08429674
+ 0.03933099 0.01314837 0.02856961 0.02840805 0.00754619]
+24/08/06 16:13:01 INFO GhfsStorageStatistics: Detected potential high latency for operation stream_write_operations. latencyMs=665; previousMaxLatencyMs=0; operationCount=0; context=gs://dataproc-temp-us-central1-681722129408-miooteyl/e6ad78a8-0533-4f51-bcb5-43d248bed690/spark-job-history/application_1722950581082_0002.inprogress
