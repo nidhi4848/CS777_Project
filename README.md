@@ -23,7 +23,7 @@ The dataset used in this project is obtained from Kaggle. You can find it [here]
 To run this project locally, follow these steps:
 1. Clone the Repository:
  bash
-git clone https://github.com/your-username/cs777_Project.git
+git clone https://github.com/your-username/CS777_Project.git
 cd brewing-analysis
   
 2. Set Up a Virtual Environment:
