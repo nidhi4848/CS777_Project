@@ -18,6 +18,7 @@ The dataset used in this project is obtained from Kaggle. You can find it [here]
 - **Flight Price Analysis Using PySpark.pdf**: The final PowerPoint presentation.
 - **driver output.txt**: Contains the results from the analysis.
 - **nidhird_project.py**: The Python file with the PySpark code.
+- **flight_prices_small.csv.bz2**: Is the small dataset
 
 ## Installation and Setup
 To run this project locally, follow these steps:
