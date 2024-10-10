@@ -3,7 +3,7 @@
 | Name     | Nidhi Desai                            |
 | Date     | 08/6/2024                                |
 | Course   | Summer'2024                               |
-| Project  | Brewery-Operations-and-Market-Analysis    |
+| Project  | Flight Data Analysis    |
 
 
 ### Flight Data Analysis
